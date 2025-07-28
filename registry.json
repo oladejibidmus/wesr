@@ -1,0 +1,172 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "template-dashboard",
+  "homepage": "https://github.com/template-dashboard",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility functions including focus styles, formatters, and Tremor Raw helpers.",
+      "files": [
+        {
+          "path": "registry/default/utils/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A customizable button component with multiple variants and loading states.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["@radix-ui/react-slot", "@remixicon/react", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/button/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A badge component for displaying status and labels.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/badge/badge.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A flexible card component for displaying content.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/card/card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A customizable input component with error states and validation.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/input/input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A label component for form inputs.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["@radix-ui/react-label", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/label/label.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A customizable select dropdown component.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["@radix-ui/react-select", "@remixicon/react", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/select/select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A checkbox component with custom styling.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["@radix-ui/react-checkbox", "@remixicon/react", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/checkbox/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A toggle switch component.",
+      "registryDependencies": ["utils"],
+      "dependencies": ["@radix-ui/react-switch", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/default/switch/switch.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:component",
+      "title": "Line Chart",
+      "description": "A customizable line chart component using Recharts.",
+      "registryDependencies": ["utils", "badge"],
+      "dependencies": ["recharts", "tailwind-variants", "@remixicon/react"],
+      "files": [
+        {
+          "path": "registry/default/line-chart/line-chart.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/line-chart/lib/chart-utils.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/line-chart/lib/use-on-window-resize.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-overview",
+      "type": "registry:block",
+      "title": "Dashboard Overview",
+      "description": "A complete dashboard overview page with charts and analytics.",
+      "registryDependencies": ["button", "badge", "line-chart", "utils"],
+      "dependencies": ["date-fns", "react-day-picker"],
+      "files": [
+        {
+          "path": "registry/default/dashboard-overview/page.tsx",
+          "type": "registry:page",
+          "target": "app/overview/page.tsx"
+        },
+        {
+          "path": "registry/default/dashboard-overview/components/dashboard-chart-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

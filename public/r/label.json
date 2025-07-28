@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "type": "registry:ui",
+  "title": "Label",
+  "description": "A label component for form inputs.",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/default/label/label.tsx",
+      "content": "// Tremor Raw Label [v0.0.0]\n\nimport * as LabelPrimitives from \"@radix-ui/react-label\"\nimport * as React from \"react\"\n\nimport { cx } from \"@/registry/default/utils/utils\"\n\ninterface CheckboxProps\n  extends React.ComponentPropsWithoutRef<typeof LabelPrimitives.Root> {\n  disabled?: boolean\n}\n\nconst Label = React.forwardRef<\n  React.ElementRef<typeof LabelPrimitives.Root>,\n  CheckboxProps\n>(({ className, disabled, ...props }, forwardedRef) => (\n  <LabelPrimitives.Root\n    ref={forwardedRef}\n    className={cx(\n      // base\n      \"text-sm leading-none\",\n      // text color\n      \"text-gray-900 dark:text-gray-50\",\n      // disabled\n      {\n        \"text-gray-400 dark:text-gray-600\": disabled,\n      },\n      className,\n    )}\n    aria-disabled={disabled}\n    {...props}\n  />\n))\nLabel.displayName = \"Label\"\n\nexport { Label }",
+      "type": "registry:component"
+    }
+  ]
+}

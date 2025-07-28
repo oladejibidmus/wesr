@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "description": "A badge component for displaying status and labels.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/default/badge/badge.tsx",
+      "content": "// Tremor Raw Badge [v0.0.0]\n\nimport React from \"react\"\nimport { tv, type VariantProps } from \"tailwind-variants\"\n\nimport { cx } from \"@/registry/default/utils/utils\"\n\nconst badgeVariants = tv({\n  base: cx(\n    \"inline-flex items-center gap-x-1 whitespace-nowrap rounded px-1.5 py-0.5 text-xs font-semibold ring-1\",\n  ),\n  variants: {\n    variant: {\n      default: [\n        \"bg-indigo-50 text-indigo-800 ring-indigo-500/30\",\n        \"dark:bg-indigo-400/10 dark:text-indigo-400 dark:ring-indigo-400/30\",\n      ],\n      neutral: [\n        \"bg-gray-50 text-gray-700 ring-gray-500/30\",\n        \"dark:bg-gray-400/10 dark:text-gray-300 dark:ring-gray-400/20\",\n      ],\n      success: [\n        \"bg-emerald-50 text-emerald-800 ring-emerald-600/30\",\n        \"dark:bg-emerald-400/10 dark:text-emerald-400 dark:ring-emerald-400/20\",\n      ],\n      error: [\n        \"bg-red-50 text-red-800 ring-red-600/20\",\n        \"dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/20\",\n      ],\n      warning: [\n        \"bg-yellow-50 text-yellow-800 ring-yellow-600/30\",\n        \"dark:bg-yellow-400/10 dark:text-yellow-500 dark:ring-yellow-400/20\",\n      ],\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n  },\n})\n\ninterface BadgeProps\n  extends React.ComponentPropsWithoutRef<\"span\">,\n    VariantProps<typeof badgeVariants> {}\n\nconst Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(\n  ({ className, variant, ...props }: BadgeProps, forwardedRef) => {\n    return (\n      <span\n        ref={forwardedRef}\n        className={cx(badgeVariants({ variant }), className)}\n        {...props}\n      />\n    )\n  },\n)\n\nBadge.displayName = \"Badge\"\n\nexport { Badge, badgeVariants, type BadgeProps }",
+      "type": "registry:component"
+    }
+  ]
+}

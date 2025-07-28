@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "A flexible card component for displaying content.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/default/card/card.tsx",
+      "content": "// Tremor Raw Card [v0.0.1]\n\nimport { Slot } from \"@radix-ui/react-slot\"\nimport React from \"react\"\n\nimport { cx } from \"@/registry/default/utils/utils\"\n\ninterface CardProps extends React.ComponentPropsWithoutRef<\"div\"> {\n  asChild?: boolean\n}\n\nconst Card = React.forwardRef<HTMLDivElement, CardProps>(\n  ({ className, asChild, ...props }, forwardedRef) => {\n    const Component = asChild ? Slot : \"div\"\n    return (\n      <Component\n        ref={forwardedRef}\n        className={cx(\n          // base\n          \"relative w-full rounded-lg border p-6 text-left shadow-sm\",\n          // background color\n          \"bg-white dark:bg-[#090E1A]\",\n          // border color\n          \"border-gray-200 dark:border-gray-900\",\n          className,\n        )}\n        {...props}\n      />\n    )\n  },\n)\n\nCard.displayName = \"Card\"\n\nexport { Card, type CardProps }",
+      "type": "registry:component"
+    }
+  ]
+}
